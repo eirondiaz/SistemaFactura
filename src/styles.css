@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.sidenav {
+    height: 100%;
+    width: 210px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #1B2329;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #fff;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+body {
+    margin-left: 210px; /* Same as the width of the sidenav */
+    background-color: #ECF0F7;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }

@@ -1,0 +1,106 @@
+<div class="container" id="conte">
+    <div class="row">
+        <div class="col-6">
+            <h1><a href=" ">Mi Factura</a></h1>
+            <button (click)="onExportClick()" class="btn btn-primary"><i class="fas fa-print">  </i>Imprimir</button>
+        </div>
+        <div class="col-6 text-right">
+            <div class="card ">
+                <div class="card-header">
+                    <h4 style="font-size: 18px;">RNC : 
+                        <a href="#">{{factura.rnc}}</a>
+                    </h4>
+                    <h4 style="font-size: 18px;">AUTORIZACION : 
+                        <a href="#">Numero de Aut.</a>
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <h4 style="font-size: 18px;">FACTURA : 
+                        <a href="#">{{factura.id}}</a>
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    <h1 style="text-align: center;" class="mt-4">FACTURA</h1> 		   
+    <div class="row mb-3">
+        <div class="col-12">
+            <div class="card ">
+                <div class="card-header">
+                    <h4 style="font-size: 18px;">Rep. Dom., <a href="#">{{factura.fecha}}</a></h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <h4 style="font-size: 18px;">Comprador: <a href="">{{factura.nombreCliente}}</a></h4>
+                        </div>
+                        <div class="col-6">
+                            <h4 style="font-size: 18px;">NIT/CI: <a href="">NIT/CI</a></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <pre></pre>
+
+    <table class="table table-bordered">
+        <thead >
+            <tr >
+                <th style="text-align: center;">
+                    <h4 style="font-size: 18px;">Cantidad</h4>
+                </th>
+                <th style="text-align: center;">
+                    <h4 style="font-size: 18px;">Concepto</h4>
+                </th>
+                <th style="text-align: center;">
+                    <h4 style="font-size: 18px;">Precio unitario</h4>
+                </th>
+                <th style="text-align: center;">
+                    <h4 style="font-size: 18px;">Total</h4>
+                </th>			
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let prod of productList">
+                <td style="text-align: center;"><b>{{prod.cantidad}}</b></td>
+                <td><a href="#"> {{prod.nombre}} </a></td>
+                <td class=" text-right "><b>{{prod.precio}}</b></td>
+                <td class=" text-right "><b>{{prod.precioTotal}}</b></td>		
+            </tr>
+            <tr>
+                <td></td>
+                <td><a href="#"></a></td>
+                <td class="text-right"></td>
+                <td class="text-right "></td>		
+            </tr>
+            <tr style="line-height: 7px;">
+                <td colspan="3" style="text-align: right;"><b>SubTotal Bs.</b></td>
+                <td style="text-align: right;"><a href="#" > <b>{{factura.subtotal}}</b> </a></td>
+            </tr>
+            <tr style="line-height: 7px;">
+                <td colspan="3" style="text-align: right;"><b>ITBIS</b></td>
+                <td style="text-align: right;"><a href="#" > <b>{{factura.itbis}}</b> </a></td>
+            </tr>
+            <tr style="line-height: 7px;">
+                <td colspan="3" style="text-align: right;"><b>Total Bs.</b></td>
+                <td style="text-align: right;"><a href="#" > <b>{{factura.total}}</b> </a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <pre></pre>
+
+    <div class="row">
+        <div class="col-4">
+            <h1><a href=" "><img alt="" src="../../../assets/qr.png" /></a></h1>
+        </div>
+        <div class="col-8">	
+            <div class="card pt-2" style="text-align: right;">
+                <h6 style="font-size: 12px;">"LA ALTERACIÓN, FALSIFICACIÓN O COMERCIALIZACIÓN ILEGAL DE ESTE DOCUMENTO ESTA PENADO POR LA LEY"</h6>
+            </div>	
+        </div>
+    </div>	
+</div>

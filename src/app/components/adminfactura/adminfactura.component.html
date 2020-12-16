@@ -1,0 +1,61 @@
+<div class="mx-2 my-4">
+    <div class="card">
+        <div class="card-header bg-info p-0">
+            <h6 class="text-light mt-2 ml-3"><b>Administrar Facturas</b></h6>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-4 offset-4">
+                    <div class="input-group">
+                        <input type="text" class="form-control" spellcheck="false" [formControl]="busqueda" placeholder="Buscar factura por cliente" style="height: 32px;" aria-label="Recipient's username" name="as" aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-info" style="height: 32px;" type="button"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-striped table-sm mt-4">
+                <thead>
+                    <tr>
+                        <th scope="col">Codigo</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Cliente</th>
+                        <th scope="col">RNC</th>
+                        <th scope="col">Total factura</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+					<ng-container *ngIf="leg === 0; else busq">
+						<tr *ngFor="let fact of facturaList">
+							<td>{{fact.id}}</td>
+							<td>{{fact.fecha}}</td>
+							<td>{{fact.nombreCliente}}</td>
+							<td>{{fact.rnc}}</td>
+							<td>{{fact.total}}</td>
+							<td>
+								<button class="btn btn-info btn-sm" [routerLink]="['/editar', fact.id]"><i class="fas fa-pen"></i></button> | 
+								<button class="btn btn-info btn-sm" [routerLink]="['/invoice', fact.id]"><i class="fas fa-print"></i></button> | 
+								<button class="btn btn-danger btn-sm" (click)="deleteFactura(fact.id)"><i class="fas fa-trash-alt"></i></button>
+							</td>
+						</tr>
+					</ng-container>
+					<ng-template #busq>
+						<tr *ngFor="let fact of busquedaList">
+							<td>{{fact.id}}</td>
+							<td>{{fact.fecha}}</td>
+							<td>{{fact.nombreCliente}}</td>
+							<td>{{fact.rnc}}</td>
+							<td>{{fact.total}}</td>
+							<td>
+								<button class="btn btn-info btn-sm" [routerLink]="['/editar', fact.id]"><i class="fas fa-pen"></i></button> | 
+								<button class="btn btn-info btn-sm" [routerLink]="['/invoice', fact.id]"><i class="fas fa-print"></i></button> | 
+								<button class="btn btn-danger btn-sm" (click)="deleteFactura(fact.id)"><i class="fas fa-trash-alt"></i></button>
+							</td>
+						</tr>
+					</ng-template>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
